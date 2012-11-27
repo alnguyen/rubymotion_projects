@@ -7,7 +7,7 @@ class AnimateController < UIViewController
 	  @current_index = 0	
 
     # usual method of adding views to our window
-	  @view = UIView.alloc.initWithFrame [@points[@current_index], [50, 50]]
+	  @view = UIView.alloc.initWithFrame [@points[@current_index], [100, 100]]
 	 	@view.backgroundColor = UIColor.blueColor
 	  self.view.addSubview(@view)
 
@@ -23,12 +23,12 @@ class AnimateController < UIViewController
 	  @current_index = @current_index % @points.count
 
 	  UIView.animateWithDuration(2,
+	    delay: 1,
+	    options: UIViewAnimationOptionCurveLinear,
 	    animations: lambda {
-	       @view.frame = [@points[@current_index], [50, 50]]
-	    },
-	    completion:lambda {|finished|
+	       @view.frame = [@points[@current_index], [100, 100]]
+	    }, completion:lambda {|finished|
 	      self.animate_to_next_point
-	    }
-	  )
+    })
 	end
 end
