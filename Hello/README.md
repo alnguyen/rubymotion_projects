@@ -1,5 +1,7 @@
-Following the tutorial on RubyMotion.
-Chapters:
+Following the tutorial on RubyMotion. 
+
+Chapters
+--------------
 -In Motion
 -Hello Motion
 -Views
