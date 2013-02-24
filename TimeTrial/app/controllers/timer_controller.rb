@@ -5,6 +5,14 @@ class TimerController < UIViewController
 		super
 		self.view.backgroundColor = UIColor.whiteColor
 		self.title = "Timer"
+		margin = 20
+		@time = 0
+
+		@label = UILabel.new
+		@label.text = @time.to_s
+		@label.frame = [[margin, 200], [view.frame.size.width - margin * 2, 40]]
+		self.view.addSubview(@label)
+
     @start_button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
     @start_button.setTitle("Start", forState:UIControlStateNormal)
     @start_button.sizeToFit
@@ -17,6 +25,8 @@ class TimerController < UIViewController
     @end_button.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2 + @start_button.size.height)
     self.view.addSubview @end_button
 
+    @reset_button
+
 
     # Button action
     @start_button.addTarget(self, action: "start_timer", forControlEvents:UIControlEventTouchUpInside)
@@ -26,7 +36,8 @@ class TimerController < UIViewController
 
 	def start_timer
 		@timer = EM.add_periodic_timer 1.0 do
-			puts "test"
+			@time += 1
+			@label.text = @time.to_s
 		end
 	end
 
