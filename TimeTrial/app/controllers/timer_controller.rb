@@ -5,12 +5,11 @@ class TimerController < UIViewController
 		super
 		self.view.backgroundColor = UIColor.whiteColor
 		self.title = "Timer"
-		margin = 20
 		@time = 0
 
 		@label = UILabel.new
 		@label.text = @time.to_s
-		@label.frame = [[margin, 200], [view.frame.size.width - margin * 2, 40]]
+		@label.frame = [[view.frame.size.width / 2, 100], [view.frame.size.width , 40]]
 		self.view.addSubview(@label)
 
     @start_button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
